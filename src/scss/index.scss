@@ -1,0 +1,133 @@
+/* font */
+@font-face {
+  font-family: 'Spoqa Han Sans Neo Bold';
+  font-weight: 700;
+  src: local('Spoqa Han Sans Neo Bold'),
+  url('../fonts/SpoqaHanSansNeo-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Spoqa Han Sans Neo Medium';
+  font-weight: 300;
+  src: local('Spoqa Han Sans Neo Medium'),
+  url('../fonts/SpoqaHanSansNeo-Medium.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Spoqa Han Sans Neo Regular';
+  font-weight: 400;
+  src: local('Spoqa Han Sans Neo Regular'),
+  url('../fonts/SpoqaHanSansNeo-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Spoqa Han Sans Neo Light';
+  font-weight: 300;
+  src: local('Spoqa Han Sans Neo Light'),
+  url('../fonts/SpoqaHanSansNeo-Light.ttf') format('truetype');
+}
+
+$Bold : 'Spoqa Han Sans Neo Bold', 'sans-serif';
+$Regular : 'Spoqa Han Sans Neo Regular', 'sans-serif';
+$Light : 'Spoqa Han Sans Neo Light', 'sans-serif';
+$Medium : 'Spoqa Han Sans Neo Medium', 'sans-serif';
+
+/********/
+
+* {
+  padding : 0;
+  margin : 0;
+  font-size : 10px;
+}
+
+body {
+  width : 100vw;
+  height : 100vh;
+
+  #root {
+    width : 100%;
+    height : 100%;
+    display : flex;
+    flex-direction : column;
+    justify-content : center;
+    align-items : center;
+
+    #test_sheet {
+      box-sizing : border-box;
+      min-width : 60vw;
+      min-height : 80vh;
+      border : 2px solid #888;
+      display : flex;
+      flex-direction : column;
+      justify-content : space-around;
+      align-items : center;
+
+      #word_screen {
+        border : 2px solid #aaa;
+        width : 80%;
+        height : 50%;
+      }
+
+      #answer {
+        font-family : $Regular;
+        font-size : 2.0rem;
+        width : 80%;
+        height : 15%;
+        display : flex;
+        justify-content : space-between;
+        align-items : center;
+
+        input {
+          box-sizing : border-box;
+          padding : 2vmin;
+          width : 80%;
+          height : 100%;
+          font-size : 8.0rem;
+
+          &:focus {
+            outline : none;
+          }
+        }
+        
+        #btn_submit {
+          width : 15%;
+          
+        }
+      }
+    }
+
+  }
+
+}
+
+/* progress */
+#progress {
+  width : 60vw;
+  height : 50px;
+  background-color : #ddd;
+  margin-bottom : 60px;
+
+  #current {
+    width : 200px;
+    height : 100%;
+    background-color : #bbb;
+    transition : all 0.5s ease-out;
+    display : flex;
+    align-items : center;
+
+    &::after {
+      content : "20%";
+      color : #666;
+      font-size : 3.0rem;
+      width : 100px;
+      top : 3px;
+      left : calc(200px);
+      margin-left : 0.5vw;
+      font-family : $Medium;
+    }
+
+  }
+
+}
+
+
