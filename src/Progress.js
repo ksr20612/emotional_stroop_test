@@ -1,10 +1,12 @@
-import React, {useState} from "react"
+import React, {useState, useEffect} from "react"
 
-const Progress = ({children}) => {
+const Progress = ({...props}) => {
 
     return (
         <div id="progress">
-            <div id="current"></div>
+            <div id="current" style={{ width : props.rate }}>
+                <span>{props.rate}</span>
+            </div>
         </div>
     )
 }

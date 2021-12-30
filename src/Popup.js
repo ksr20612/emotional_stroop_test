@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 
-const Popup = () => {
+const Popup = ({type}) => {
+    
 
 }
 

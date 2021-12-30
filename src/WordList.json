@@ -2,37 +2,45 @@
     "warm_up" : [
         {
             "word" : "공포",
-            "color" : "#6137ad"
+            "color" : "blue",
+            "answer" : "파랑"
         },
         {
             "word" : "컴퓨터",
-            "color" : "#d7e332"
+            "color" : "#FFFF00",
+            "answer" : "노랑"
         },
         {
             "word" : "연필",
-            "color" : "#5bd957"
+            "color" : "#FF0000",
+            "answer" : "빨강"
         }
     ],
     "real" : [
         {
             "word" : "공포",
-            "color" : "#6137ad"
+            "color" : "#008000",
+            "answer" : "초록"
         },
         {
             "word" : "컴퓨터",
-            "color" : "#d7e332"
+            "color" : "#FFFF00",
+            "answer" : "노랑"
         },
         {
             "word" : "연필",
-            "color" : "#5bd957"
+            "color" : "#FF0000",
+            "answer" : "빨강"
         },
         {
             "word" : "커피",
-            "color" : "#3167d4"
+            "color" : "#FF7F00",
+            "answer" : "주황"
         },
         {
             "word" : "눈사람",
-            "color" : "#f50c0c"
+            "color" : "#A840FF",
+            "answer" : "보라"
         }
     ]
 
