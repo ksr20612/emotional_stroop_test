@@ -4,13 +4,14 @@ import WordScreen from "./WordScreen.js";
 import InputBox from "./InputBox.js";
 import Progress from "./Progress.js";
 import stopwatch from "./Stopwatch.js";
+import Popup from "./Popup.js";
 
 const TestSheet = () => {
 
     const [wordList, setWordList] = useState(WordList.warm_up);
     const [round, setRound] = useState(1);
     const [word, setWord] = useState("");
-    const [isPractice, setPractice] = useState(true);
+    const [step, setStep] = useState(0);
     const [isPopupOn, setPopupOn] = useState(false);
     const [answer, setAnswer] = useState("");
     const [correctness, setCorrectness] = useState([]); // 정답 : 1, 오답 : 0
@@ -18,9 +19,12 @@ const TestSheet = () => {
 
     const btnSubmit = useRef();
 
-    // 1 : practice, 2 : real
+    const [averageDuration,setAverageDuration] = useState(0);
+    const [score,setScore] = useState(0);
+
+    // 0 : start, 1 : practice, 2 : real
     const setType = (type) => {
-        setPractice(type===1? true : false);
+        setStep(type);
         setWordList(type===1? WordList.warm_up : WordList.real);
     }
     const changeRound = async () => {
@@ -29,7 +33,7 @@ const TestSheet = () => {
         await storeCurrentRound(stopwatch.end());
         if(round>=wordList.length) {
             console.log("종료");
-            closeRound(isPractice);
+            closeRound(step===1? true : false);
         }else {
             nextRound(round);
         }
@@ -50,6 +54,8 @@ const TestSheet = () => {
     const init = () => {
         setRound(1);
         setType(1);
+        setCorrectness([]);
+        setDuration([]);
         setWordList(WordList.warm_up);
         setWord(wordList[round-1]);
         stopwatch.start();
@@ -58,15 +64,18 @@ const TestSheet = () => {
         const reset = 1;
         setRound(reset);
         setType(2);
+        setCorrectness([]);
+        setDuration([]);
         setWordList(WordList.real);
         setWord(wordList[reset-1]);
         setAnswer("");
         stopwatch.start();
     }
-    const closeRound = (isPractice) => {
+    const closeRound = async (isPractice) => {
         console.log(isPractice);
         if(isPractice) {
-            return startReal();
+            init();
+            openPopup();
         }else {
             console.log("완전 종료");
         }
@@ -78,9 +87,36 @@ const TestSheet = () => {
         }
     }
 
+    const openPopup = () => {
+        if(!isPopupOn) {
+            setPopupOn(true);
+        }
+    }
+    const closePopup = () => {
+        if(isPopupOn) {
+            setPopupOn(false);
+        }
+    }
+
+    const calcScore = () => {
+
+        const total = wordList.length;
+        const currentScore = correctness.reduce((a,b)=>a*1+b*1);
+
+        setScore((currentScore/total).toFixed(2)*100);
+        setAverageDuration((duration.reduce((a,b)=>a*1+b*1)/total).toFixed(2));
+    }
+
     useLayoutEffect(()=>{
-        init();
+        openPopup();
     },[])
+
+    useLayoutEffect(()=>{
+        if(round>=wordList.length) {
+            calcScore();
+
+        }
+    })
 
     return (
         <>
@@ -89,6 +125,7 @@ const TestSheet = () => {
                 <WordScreen word={word}/>
                 <InputBox handleChange={handleChange} submit={changeRound} pushEnter={pushEnter} submitButton={btnSubmit}/>
             </div>
+            <div>{isPopupOn && <Popup handleClose={closePopup} type={step===0? "start" : step===1? "warmed_up" : "end"} warmUpLen={wordList.length} callback={step===0? init : step===1? startReal : ""} init={init} score={score} averageDuration={averageDuration}></Popup>}</div>
         </>
     )
 

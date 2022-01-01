@@ -194,3 +194,167 @@ body #root #progress #current span {
   margin-right: 0.5vw;
   font-family: "Spoqa Han Sans Neo Light", "sans-serif";
 }
+
+body #modal .popup {
+  position: fixed;
+  background-color: #eee;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 2px solid #aaa;
+  -webkit-box-shadow: 0.5rem 0.5rem 1rem #ccc;
+          box-shadow: 0.5rem 0.5rem 1rem #ccc;
+  min-width: calc(60vw * 0.9);
+  height: 60vh;
+  top: 20vh;
+  left: calc((60vw * 0.05) + 20vw);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body #modal .popup .content {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  padding: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+body #modal .popup .content div {
+  font-size: 1.3vw;
+  font-family: "Spoqa Han Sans Neo Medium", "sans-serif";
+  text-align: center;
+}
+
+body #modal .popup .content div bold {
+  font-size: 1.8vw;
+  font-family: "Spoqa Han Sans Neo Bold", "sans-serif";
+  color: #1a35cc;
+}
+
+body #modal .popup .content .btn_start {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 1px solid black;
+  width: 50%;
+  height: 15%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+  -webkit-transition: 0.3s all linear;
+  transition: 0.3s all linear;
+}
+
+body #modal .popup .content .btn_start span {
+  font-size: 2vw;
+  font-family: "Spoqa Han Sans Neo Regular", "sans-serif";
+}
+
+body #modal .popup .content .btn_start:hover {
+  background-color: #ddd;
+  -webkit-animation-name: tilt;
+          animation-name: tilt;
+  -webkit-animation-duration: 0.3s;
+          animation-duration: 0.3s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+}
+
+@-webkit-keyframes tilt {
+  from {
+    -webkit-transform: rotateX(10deg);
+            transform: rotateX(10deg);
+  }
+  to {
+    -webkit-transform: rotateX(10deg);
+            transform: rotateX(10deg);
+  }
+}
+
+@keyframes tilt {
+  from {
+    -webkit-transform: rotateX(10deg);
+            transform: rotateX(10deg);
+  }
+  to {
+    -webkit-transform: rotateX(10deg);
+            transform: rotateX(10deg);
+  }
+}
+
+body #modal .popup.warmed_up .btn_list {
+  width: 100%;
+  height: 15%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body #modal .popup.warmed_up .btn_list div {
+  width: 40%;
+  height: 80%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 1px solid black;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: 0.3s all linear;
+  transition: 0.3s all linear;
+}
+
+body #modal .popup.warmed_up .btn_list div span {
+  font-size: 2vw;
+  font-family: "Spoqa Han Sans Neo Bold", "sans-serif";
+}
+
+body #modal .popup.warmed_up .btn_list div:hover {
+  background-color: #ddd;
+  -webkit-animation-name: tilt;
+          animation-name: tilt;
+  -webkit-animation-duration: 0.3s;
+          animation-duration: 0.3s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+}
