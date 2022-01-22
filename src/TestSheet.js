@@ -22,7 +22,7 @@ const TestSheet = () => {
     const [averageDuration,setAverageDuration] = useState(0);
     const [score,setScore] = useState(0);
 
-    // 0 : start, 1 : practice, 2 : real
+    // 0 : start, 1 : practice, 2 : real, 3 : 종료
     const setType = (type) => {
         setStep(type);
         setWordList(type===1? WordList.warm_up : WordList.real);
@@ -77,6 +77,8 @@ const TestSheet = () => {
             init();
             openPopup();
         }else {
+            setPopupOn(false);
+            setType(3);
             console.log("완전 종료");
         }
     }
@@ -114,7 +116,6 @@ const TestSheet = () => {
     useLayoutEffect(()=>{
         if(round>=wordList.length) {
             calcScore();
-
         }
     })
 
@@ -122,8 +123,57 @@ const TestSheet = () => {
         <>
             <Progress rate={(round/wordList.length).toFixed(2)*100+"%"}/>
             <div id="test_sheet">
-                <WordScreen word={word}/>
-                <InputBox handleChange={handleChange} submit={changeRound} pushEnter={pushEnter} submitButton={btnSubmit}/>
+                {(step!==3)?   
+                    <>
+                        <WordScreen word={word}/>
+                        <InputBox handleChange={handleChange} submit={changeRound} pushEnter={pushEnter} submitButton={btnSubmit}/>
+                    </>
+                    :
+                    <>
+                        <div className="result"> 
+                            <div className="result_title"><span>테스트 결과</span></div>
+                            <div className="result_content">
+                                <div>
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>라운드</th>
+                                                <th>정답</th>
+                                                <th>소요시간(초)</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        {
+                                            correctness.map((v,i)=>{
+                                                return (
+                                                    <tr id={i+1}>
+                                                        <td>{i+1}</td>
+                                                        <td>{v===1? `O`:`X`}</td>
+                                                        <td>{duration[i]}</td>
+                                                    </tr>
+                                                )
+                                            })
+                                        }
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <td>평균</td>
+                                                <td>{score}%</td>
+                                                <td>{averageDuration}</td>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                                <div>
+                                    <div className="ranking">
+                                        참여자 전체 평균과 본인의 등수
+                                    </div>
+                                    <div className="replay" onClick={()=>{init()}}><span>다시 시작하기</span></div>
+                                </div>
+                            </div> 
+                        </div>
+                    </>
+                }
             </div>
             <div>{isPopupOn && <Popup handleClose={closePopup} type={step===0? "start" : step===1? "warmed_up" : "end"} warmUpLen={wordList.length} callback={step===0? init : step===1? startReal : ""} init={init} score={score} averageDuration={averageDuration}></Popup>}</div>
         </>

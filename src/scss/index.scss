@@ -109,7 +109,7 @@ body {
           display : flex;
           justify-content : center;
           align-items : center;
-          font-family : &Bold;
+          font-family : $Bold;
           font-size : 3.0rem;
           letter-spacing : 1rem;
           color : white;
@@ -119,10 +119,123 @@ body {
           &:hover {
             background-color : #adbecc;
           }
+        }
+      }
+
+      .result {
+
+        width : 100%;
+        display : flex;
+        justify-content : center;
+        flex-direction : column;
+        align-items : center;
+
+        .result_title {
+
+          font-family : $Bold;
+          font-size : 5.0rem;
+          width : 80%;
+          display : flex;
+          justify-content : center;
+          align-items : center;
+          border : 2px solid #aaa;
+          margin-bottom : 5vh;
+
+          span {
+            font-family : inherit;
+            font-size : inherit;
+          }
+
+        }
+        .result_content {
+          
+          display : flex;
+          justify-content : space-between;
+          align-items : center;
+          width : 80%;
+
+          & > div {
+
+            width : 45%;
+            height : 50vh;
+
+            &:first-child {
+              
+              border : 2px dashed #aaa;
+              box-sizing : border-box;
+
+              table {    
+                width : 100%;
+                height : 100%;
+                border-spacing : 0;
+
+                th, td {
+                  font-family : $Medium;
+                  font-size : 3.0rem;
+                  text-align : center;
+                }
+                thead {
+                  height : 10%;
+                }
+                tbody {
+                  height : calc(10% - 5vh);
+                }
+                tfoot {
+                  height : 5vh;
+                  background-color : #eee;
+                  
+                  td {
+                    font-family : $Bold;
+                    color : rgb(20, 42, 168);
+                  }
+                }
+              }
+            }
+
+            &:last-child {
+
+              .ranking {
+                font-family : $Medium;
+                font-size : 3.0rem;
+                display : flex;
+                justify-content : center;
+                align-items : center;
+
+                border : 2px dashed #aaa;
+                height : 42vh;
+                margin-bottom : 2.8vh;
+              }
+
+              .replay {
+                font-family : $Bold;
+                font-size : 3.0rem;
+                display : flex;
+                justify-content : center;
+                align-items : center;
+                height : 5vh;
+                background-color : #c3d5e6;
+                cursor : pointer;
+                transition : all 0.3s ease-out;
+
+                span {
+                  font-family : inherit;
+                  font-size : inherit;
+                }
+
+                &:hover {
+                  font-size : 3.3rem;
+                  background-color : #adbecc;
+                  border-radius : 2vmax;
+                }
+              }
+            }
+
+          }
 
         }
 
       }
+
     }
 
     /* progress */
