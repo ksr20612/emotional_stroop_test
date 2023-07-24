@@ -1,70 +1,17 @@
-# Getting Started with Create React App
+```
+Stroop test는 기본적으로 세 가지 지점을 상정합니다 : (1) 자극의 색깔(시각적 특성), (2) 자극의 의미(의미적 특성), (3) 참가자의 인지(인지적 특성). 중요한 것은 Stroop test가 의도적으로 두 지점의 충돌(처리의 지연)을 생성한다는 것입니다. 기본적인 stroop test는 (1)과 (2)의 충돌을 발생시킵니다. 즉, 빨간 색으로 적혀진 "파랑"이라는 자극에서는 자극의 시각적 특성과 의미적 특성이 서로 충돌하고 있습니다. 이때 참가자의 인지는 (1)과 (2)의 특성이 전달하는 것과 동일합니다. 즉, 색깔로서의 빨강과 의미로서의 파랑이 그대로 참가자의 인지작용에 의해 처리됩니다.
+<br/>
+Emotional stroop test는 기본적인 stroop test를 살짝 비틀었습니다. (3) 참가자의 인지와 (2) 자극의 의미가 충돌하는 지점을 만들어버리는 것입니다. 여기서 충돌은 참가자의 사고가 자극의 의미에 자동적으로 이끌려감을 의미합니다. 즉, 참가자가 "불안"한 상태라면 "불안"이라는 글자에 더 강하게 반응할 것(이끌릴 것)입니다. 따라서 "불안"이라는 글자의 색을 판단하는 데까지 걸리는 시간이 자연스럽게 증가할 것이라고 가정하는 것입니다. 
+```
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# 1. 고안
+https://blog.naver.com/naivethan/222601318293
 
-## Available Scripts
+# 2. 초안 개발
+https://blog.naver.com/naivethan/222608612788
 
-In the project directory, you can run:
+# 3. 초안 확장
+https://blog.naver.com/naivethan/222610262852
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# 4. 초안 추가 확장
+https://blog.naver.com/naivethan/222628431546
